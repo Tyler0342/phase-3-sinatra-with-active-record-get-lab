@@ -16,13 +16,13 @@ class ApplicationController < Sinatra::Base
 
   get '/baked_goods/by_price' do
  
-    baked_goods = BakedGood.sort_by(:price)
+    baked_goods = BakedGood.find(params[:price])
     baked_goods.to_json
   end
 
     get '/baked_goods/most_expensive' do
 
-    baked_good = BakedGood.sort_by(:price).first
+    baked_good = BakedGood.find(params[:price]).first
     baked_good.to_json
   end
 end
